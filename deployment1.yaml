@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juan-david-deployment
+  labels:
+    app: juan-david
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: juan-david
+  template:
+    metadata:
+      labels:
+        app: juan-david
+    spec:
+      containers:
+      - name: juan-david
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
